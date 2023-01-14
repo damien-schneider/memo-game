@@ -24,6 +24,8 @@ function App() {
       .sort(() => Math.random() -0.5)
       .map((card) => ({ ...card, id: Math.random()}))
 
+    setChoiceOne(null)
+    setChoiceTwo(null)
     setCards(shuffledCards)
     setTurns(0)
   }
@@ -65,6 +67,11 @@ function App() {
     setDisabled(false)
   }
 
+  // Start a new game automatically
+  // useEffect(() => {
+  //   shuffleCards()
+  // }, [])
+
   return (
     <div className="App">
       <h1>Mémo duo</h1>
@@ -80,6 +87,7 @@ function App() {
           />
         ))}
       </div>
+      <p>Nombre de tours : {turns}</p>
     </div>
   );
 }
